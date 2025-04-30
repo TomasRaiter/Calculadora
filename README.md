@@ -61,3 +61,11 @@ Este proyecto consiste en el desarrollo de una calculadora en lenguaje C/C++ que
 - Validación exhaustiva de entradas
 - Funcionalidad modularizada
 - Interacción por consola (CLI)
+
+## ⚙️ Cómo compilar
+
+Si estás usando un compilador como `g++`, puedes compilar todos los archivos con el siguiente comando:
+
+```bash
+g++ main.cpp calculadoraDeNumeros.cpp calculadoraDeVectores.cpp calculadoraDeMatrices.cpp calculadoraDeEcuaciones.cpp -o calculadora
+```
