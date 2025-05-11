@@ -47,13 +47,11 @@ Este proyecto consiste en el desarrollo de una calculadora en lenguaje C/C++ que
   - A⁻¹ Inversa de una matriz
   - A/B División de matrices (matriz multiplicada por la inversa de otra)
 
-
 ### 5. Resolución de sistemas de ecuaciones
 
 - Ingreso y resolución de:
   - Sistema **2x2**
   - Sistema **3x3**
-
 
 ## ⚙️ Requisitos técnicos
 

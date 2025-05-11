@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <locale>
 
 #include "calculadoraDeNumeros.h"
 #include "calculadoraDeVectores.h"
@@ -8,10 +9,13 @@
 
 using namespace std;
 
-int main() {
+int main()
+{
+    setlocale(LC_ALL, "es_ES.UTF-8");
     int opcion;
 
-    do {
+    do
+    {
         cout << "=========== CALCULADORA EN C++ ===========" << endl;
         cout << "1. Operaciones básicas con números" << endl;
         cout << "2. Operaciones con vectores" << endl;
@@ -21,37 +25,40 @@ int main() {
         cout << "Seleccione una opción: ";
         cin >> opcion;
 
-        if (cin.fail()) {
+        if (cin.fail())
+        {
             cin.clear();
             cin.ignore(10000, '\n');
             opcion = -1;
         }
 
-        switch (opcion) {
-            case 1:
-                operacionesBasicas();
-                break;
-            case 2:
-                operacionesVectores();
-                break;
-            case 3:
-                operacionesMatrices();
-                break;
-            case 4:
-                resolverSistemaEcuaciones();
-                break;
-            case 0:
-                cout << "Saliendo del programa..." << endl;
-                break;
-            default:
-                cout << "Opción inválida. Intente nuevamente." << endl;
+        switch (opcion)
+        {
+        case 1:
+            operacionesBasicas();
+            break;
+        case 2:
+            operacionesVectores();
+            break;
+        case 3:
+            operacionesMatrices();
+            break;
+        case 4:
+            resolverSistemaEcuaciones();
+            break;
+        case 0:
+            cout << "Saliendo del programa..." << endl;
+            break;
+        default:
+            cout << "Opción inválida. Intente nuevamente." << endl;
         }
 
-        if (opcion != 0) {
+        if (opcion != 0)
+        {
             cout << "\nPresione Enter para continuar...";
             cin.ignore();
             cin.get();
-            system("clear");
+            system("cls");
         }
 
     } while (opcion != 0);
