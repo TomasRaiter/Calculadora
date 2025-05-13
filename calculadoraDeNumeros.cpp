@@ -11,7 +11,7 @@ void mostrarOperaciones()
     cout << "3. Multiplicación (*)\n";
     cout << "4. División (/)\n";
     cout << "5. Potencia (^)\n";
-    cout << "6. Raíz cuadrada (√)\n";
+    cout << "6. Raíz (√)\n";
     cout << "7. Salir\n";
 }
 
