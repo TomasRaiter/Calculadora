@@ -129,8 +129,3 @@ void operacionesVectores()
     } while (opcion != 5);
 }
 
-int main()
-{
-    operacionesVectores();
-    return 0;
-}
