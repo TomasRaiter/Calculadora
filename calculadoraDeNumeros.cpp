@@ -110,12 +110,18 @@ void operacionesBasicas()
             hayResultadoAnterior = true;
             break;
         case 6:
-            num1 = pedirNumero("Ingrese el número ", resultadoAnterior);
-            if (num1 < 0)
-                cout << "Error: No se puede calcular raíz cuadrada de un número negativo.\n";
-            else
-            {
-                resultado = sqrt(num1);
+            double num;
+            int indice;
+            
+            num = pedirNumero("Ingrese el número: ", resultadoAnterior);
+            indice = (int)pedirNumero("Ingrese el índice de la raíz (ej. 2 para cuadrada, 3 para cúbica): ", resultadoAnterior);
+            
+            if (indice == 0) {
+                cout << "Error: El índice de la raíz no puede ser cero.\n";
+            } else if (num < 0 && indice % 2 == 0) {
+                cout << "Error: No se puede calcular raíz par de un número negativo.\n";
+            } else {
+                resultado = pow(num, 1.0 / indice);
                 cout << "Resultado: " << resultado << endl;
                 resultadoAnterior = resultado;
                 hayResultadoAnterior = true;
