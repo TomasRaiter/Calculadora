@@ -1,30 +1,34 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <iostream>
+#include <limits>
+
+using namespace std;
 
 void cargarVector(int *v, int n)
 {
-    int i;
-    for (i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
-        printf("Ingrese valor %d: ", i + 1);
-        scanf("%d", v + i);
+        cout << "Ingrese valor " << i + 1 << ": ";
+        while (!(cin >> *(v + i)))
+        {
+            cout << "Entrada invalida. Ingrese un numero entero: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
     }
 }
 
 void mostrarVector(int *v, int n)
 {
-    int i;
-    for (i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
-        printf("%d ", *(v + i));
+        cout << *(v + i) << " ";
     }
-    printf("\n");
+    cout << endl;
 }
 
 void sumaResta(int *v1, int *v2, int *resSuma, int *resResta, int n)
 {
-    int i;
-    for (i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
         *(resSuma + i) = *(v1 + i) + *(v2 + i);
         *(resResta + i) = *(v1 + i) - *(v2 + i);
@@ -33,8 +37,7 @@ void sumaResta(int *v1, int *v2, int *resSuma, int *resResta, int n)
 
 void multiplicarPorEscalar(int *v, int *res, int escalar, int n)
 {
-    int i;
-    for (i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
         *(res + i) = *(v + i) * escalar;
     }
@@ -42,8 +45,8 @@ void multiplicarPorEscalar(int *v, int *res, int escalar, int n)
 
 int productoEscalar(int *v1, int *v2, int n)
 {
-    int i, total = 0;
-    for (i = 0; i < n; i++)
+    int total = 0;
+    for (int i = 0; i < n; i++)
     {
         total += (*(v1 + i)) * (*(v2 + i));
     }
@@ -60,63 +63,79 @@ void productoVectorial(int *v1, int *v2, int *res)
 void operacionesVectores()
 {
     int n, escalar, opcion;
-    printf("Ingrese dimension de los vectores: ");
-    scanf("%d", &n);
+
+    cout << "Ingrese dimension de los vectores: ";
+    while (!(cin >> n))
+    {
+        cout << "Entrada invalida. Ingrese un numero entero: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
 
     int v1[n], v2[n], resSuma[n], resResta[n], resEscalarV1[n], resEscalarV2[n], resVectorial[3];
 
-    printf("Ingrese valores del primer vector:\n");
+    cout << "Ingrese valores del primer vector:\n";
     cargarVector(v1, n);
 
-    printf("Ingrese valores del segundo vector:\n");
+    cout << "Ingrese valores del segundo vector:\n";
     cargarVector(v2, n);
 
     do
     {
-        printf("\n--- MENU DE OPERACIONES ---\n");
-        printf("1. Suma y Resta de vectores\n");
-        printf("2. Multiplicacion de escalar por ambos vectores\n");
-        printf("3. Producto escalar\n");
-        printf("4. Producto vectorial (solo para vectores de 3 dimensiones)\n");
-        printf("5. Salir\n");
-        printf("Seleccione una opcion: ");
-        scanf("%d", &opcion);
+        cout << "\n--- MENU DE OPERACIONES ---\n";
+        cout << "1. Suma y Resta de vectores\n";
+        cout << "2. Multiplicacion de escalar por ambos vectores\n";
+        cout << "3. Producto escalar\n";
+        cout << "4. Producto vectorial (solo para vectores de 3 dimensiones)\n";
+        cout << "5. Salir\n";
+        cout << "Seleccione una opcion: ";
+        while (!(cin >> opcion))
+        {
+            cout << "Opcion invalida. Ingrese un numero entero: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
 
         switch (opcion)
         {
         case 1:
             sumaResta(v1, v2, resSuma, resResta, n);
-            printf("\nSuma: ");
+            cout << "\nSuma: ";
             mostrarVector(resSuma, n);
-            printf("Resta: ");
+            cout << "Resta: ";
             mostrarVector(resResta, n);
             break;
 
         case 2:
-            printf("Ingrese el escalar: ");
-            scanf("%d", &escalar);
+            cout << "Ingrese el escalar: ";
+            while (!(cin >> escalar))
+            {
+                cout << "Entrada invalida. Ingrese un numero entero: ";
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
             multiplicarPorEscalar(v1, resEscalarV1, escalar, n);
             multiplicarPorEscalar(v2, resEscalarV2, escalar, n);
-            printf("\nEscalar * Vector 1: ");
+            cout << "\nEscalar * Vector 1: ";
             mostrarVector(resEscalarV1, n);
-            printf("Escalar * Vector 2: ");
+            cout << "Escalar * Vector 2: ";
             mostrarVector(resEscalarV2, n);
             break;
 
         case 3:
-            printf("\nProducto escalar: %d\n", productoEscalar(v1, v2, n));
+            cout << "\nProducto escalar: " << productoEscalar(v1, v2, n) << endl;
             break;
 
         case 4:
             if (n == 3)
             {
                 productoVectorial(v1, v2, resVectorial);
-                printf("Producto vectorial: ");
+                cout << "Producto vectorial: ";
                 mostrarVector(resVectorial, 3);
             }
             else
             {
-                printf("Producto vectorial solo disponible para vectores de 3 dimensiones.\n");
+                cout << "Producto vectorial solo disponible para vectores de 3 dimensiones.\n";
             }
             break;
 
@@ -124,8 +143,8 @@ void operacionesVectores()
             break;
 
         default:
-            printf("Opcion invalida. Intente nuevamente.\n");
+            cout << "Opcion invalida. Intente nuevamente.\n";
         }
+
     } while (opcion != 5);
 }
-
