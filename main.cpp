@@ -17,6 +17,7 @@ int main()
     do
     {
         cout << "=========== CALCULADORA EN C++ ===========" << endl;
+        cout <<"Desarrollado por : "<< endl <<"\tTomás Santa Cruz" << endl <<"\tTomás Raiter" <<endl <<"\tLuis Rodriguez" << endl <<"\tFelipe Pavon" << endl;
         cout << "1. Operaciones básicas con números" << endl;
         cout << "2. Operaciones con vectores" << endl;
         cout << "3. Operaciones con matrices" << endl;
