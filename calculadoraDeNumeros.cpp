@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cmath> // Para pow y sqrt
+#include <cmath>
 
 using namespace std;
 
