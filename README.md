@@ -1,5 +1,7 @@
 # Calculadora en C/C++
 
+Trabajo Práctico de: Laboratorio de Programación Orientada a Objetos
+
 ## 📌 Descripción del proyecto
 
 Este proyecto consiste en el desarrollo de una calculadora en lenguaje C/C++ que ofrezca múltiples funcionalidades matemáticas mediante una interfaz basada en menús. Incluye validación de datos, múltiples operaciones consecutivas, y una opción de salida controlada por el usuario.
@@ -61,8 +63,6 @@ Este proyecto consiste en el desarrollo de una calculadora en lenguaje C/C++ que
 - Interacción por consola (CLI)
 
 ## ⚙️ Cómo compilar
-
-Si estás usando un compilador como `g++`, puedes compilar todos los archivos con el siguiente comando:
 
 ```bash
 g++ main.cpp calculadoraDeNumeros.cpp calculadoraDeVectores.cpp calculadoraDeMatrices.cpp calculadoraDeEcuaciones.cpp -o calculadora
